@@ -3,7 +3,7 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define e = Character("Muscle Mommy 💪")
 
 
 # The game starts here.
@@ -20,13 +20,17 @@ label start:
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.
 
-    show eileen happy
+    show Mommy
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game. And it works on Github!!!"
+    e "Why did I come here? No one comes to bars for the soda. Just… act natural. Stand casually. Yeah, because this is what casual feels like. 
+(He glances around. A soft-spoken woman in athletic wear approaches the bar with a gentle smile.)
+"
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e "Okay, I can do this. Just be casual. Just be normal. And maybe don’t spill your drink this time.
+(He glances around nervously. A soft-spoken woman in athletic wear approaches the bar with a gentle smile.)
+"
 
     # This ends the game.
 
