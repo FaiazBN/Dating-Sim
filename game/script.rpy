@@ -4,18 +4,34 @@
 # name of the character.
 
 define protagonist = Character("Protagonist")
-define raina = Character("Raina")
-define dayonetta = Character("Dayonetta")
-define justina = Character("Justina")
+define raina = Character("raina")
+define dayonetta = Character("dayonetta")
+define justina = Character("justina")
+
+#sprites are too big
+transform half_size: 
+    zoom 0.5 #adjust as required
+
+transform midright:
+    yalign 1.0
+    xcenter 0.5
+
 
 # Start the game
 label start:
     # Scene setup
-    scene bg bar with fade
+    scene bg bar with fade:
+        zoom 2.5
+        blur 15
+
+    play music "A-Cloudy-Morning-2012.mp3"
+
 
     # Internal monologue and scene setup
     protagonist "|Internal Monologue| A dimly lit bar. I stand nervously by the counter, nursing a soda."
     protagonist "|Internal Monologue| Why did I come here? No one comes to bars for the soda. Just... act natural. Stand casually. Yeah, because this is what casual feels like."
+    show raina norm at half_size,midright
+       
     protagonist "|Internal Monologue| I glance around nervously. A soft-spoken woman in athletic wear approaches the bar with a gentle smile."
 
     raina "Hi there! My name's Raina. You seem... tense. Everything okay?"
@@ -53,9 +69,13 @@ label start:
     protagonist "Okay, one down, but there’s plenty of other opportunities around here. I mean, she was practically a yoga class in human form anyways, so maybe I’ll have better luck over there."
 
     # Transition to the next encounter
-    scene bg booth with fade
-    protagonist "I spot a woman with glasses and dark short hair sitting alone at a booth. She seems approachable but mysterious."
+    scene bg booth with fade:
+        zoom 4
+        blur 15
 
+    
+    protagonist "I spot a woman with glasses and dark short hair sitting alone at a booth. She seems approachable but mysterious."
+    show dayonetta norm at half_size, midright
     dayonetta "Hello darling, terribly sorry to see you strike out over there. If you need to learn to talk to a lady… why not ask me!"
 
     menu:
@@ -74,9 +94,12 @@ label start:
     protagonist "She winks and walks away. That could have gone better… or worse."
 
     # Transition to the final encounter
-    scene bg booth_motorbike with fade
-    protagonist "I notice another woman sitting nearby with a motorcycle helmet on the table beside her. She has an intense aura."
+    scene bg booth_motorbike with fade:
+        zoom 5
+        blur 15
 
+    protagonist "I notice another woman sitting nearby with a motorcycle helmet on the table beside her. She has an intense aura."
+    show justina norm at half_size, midright
     justina "Ugh, what do you want?"
 
     menu:
@@ -91,9 +114,13 @@ label start:
         "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?":
             protagonist "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?"
             justina "That’s it. You’ve bothered enough girls tonight. You’re out of here!"
+    stop music
+    play sound "thwack-06.wav"
 
     # End the game
-    scene bg black
+    scene bg outsidebar:
+        blur 10
+    play music "crickets.mp3"
     protagonist "I’ve been thrown out of the bar. Maybe I need to rethink my strategy."
 
     return
