@@ -3,10 +3,10 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define protagonist = Character("Protagonist")
-define raina = Character("raina")
-define dayonetta = Character("dayonetta")
-define justina = Character("justina")
+define protagonist = Character("Self-Talk")
+define raina = Character("Raina")
+define dayonetta = Character("Dayonetta")
+define justina = Character("Justina")
 
 #sprites are too big
 transform half_size: 
@@ -30,7 +30,7 @@ init -1 python:
     }
 
 # Define Tracery characters
-define e = TC("protagonist", grammar=tracery_grammar)
+define e = TC("You", grammar=tracery_grammar)
 
 # Start the game
 label start:
@@ -43,16 +43,16 @@ label start:
 
 
     # Internal monologue and scene setup
-    protagonist "|Internal Monologue| A dimly lit bar. I stand nervously by the counter, nursing a soda."
-    protagonist "|Internal Monologue| Why did I come here? No one comes to bars for the soda. Just... act natural. Stand casually. Yeah, because this is what casual feels like."
+    protagonist "A dimly lit bar. I stand nervously by the counter, nursing a soda."
+    protagonist "Why did I come here? No one comes to bars for the soda. Just... act natural. Stand casually. Yeah, because this is what casual feels like."
     show raina norm at half_size,midright
        
-    protagonist "|Internal Monologue| I glance around nervously. A soft-spoken woman in athletic wear approaches the bar with a gentle smile."
+    protagonist "I glance around nervously. A soft-spoken woman in athletic wear approaches the bar with a gentle smile."
 
     raina "Hi there! My name's Raina. You seem... tense. Everything okay?"
 
     menu:
-        "I'm ____ nice to meet you":
+        "I'm doing well. Nice to meet you.":
             # protagonist "I'm _____. Nice to meet you!"
             e "#origin#"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
@@ -67,7 +67,7 @@ label start:
             e "#origin#"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
-    protagonist "|Internal Monologue| Is she… meditating? In a bar? Should I join her? I’ll look weird if I don’t. But also weird if I do. Oh no, what do I do with my hands?"
+    protagonist "Is she… meditating? In a bar? Should I join her? I’ll look weird if I don’t. But also weird if I do. Oh no, what do I do with my hands?"
 
     raina "Now that was a great workout! You know... maybe you should come down to my studio sometime and I could give you a private lesson?"
 
