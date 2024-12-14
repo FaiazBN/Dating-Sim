@@ -456,6 +456,18 @@ def parse(rule):
     return sections, errors
 
 
+
+
+def refine(text):
+    return text[:255]+"..." if len(text) > 255 else text
+
+
+# Definition of the TraceryCharacter 
+# Format for the string: #origin#::ID
+# ID is optional, and acts as a dictionary key to cache the result
+#
+# Example:
+# e "#origin#::option1"
 class TraceryCharacter(renpy.character.ADVCharacter):
     
     def __init__(self, name, grammar, **properties):
@@ -463,12 +475,26 @@ class TraceryCharacter(renpy.character.ADVCharacter):
              grammar = Grammar(grammar)
              grammar.add_modifiers(base_english)
         self._tracery_grammar = grammar
+        
+        # dictionary to store the results 
+        self.cache = {}
+        
         super(TraceryCharacter, self).__init__(name, **properties)        
-    
+
+
     def __call__(self, what, *args, **kwargs):
-        text = self._tracery_grammar.flatten(what)
-        if len(text) > 255:
-            text = text[:255]
-            text += "..."
-        super(TraceryCharacter, self).__call__(text, *args, **kwargs)
- 
+        # check if the string contains the number
+        if "::" in what:
+            origin, ID = what.split("::")
+            
+            if ID in self.cache:
+                text = self.cache[ID]
+                
+            else:
+                text = self._tracery_grammar.flatten(origin)
+                self.cache[ID] = text
+        else:
+            text = self._tracery_grammar.flatten(what)
+        
+        final_text = refine(text)
+        super(TraceryCharacter, self).__call__(final_text, *args, **kwargs)
