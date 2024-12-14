@@ -500,3 +500,19 @@ class TraceryCharacter(renpy.character.ADVCharacter):
         
         final_text = refine(text)
         super(TraceryCharacter, self).__call__(final_text, *args, **kwargs)
+        
+        
+class TraceryGen:
+    def __init__(self, grammar, settings=None):
+        grammar = Grammar(grammar)
+        grammar.add_modifiers(base_english)
+        
+        self._tracery_grammar = grammar
+        
+    def flatten(self, root):
+        out = self._tracery_grammar.flatten(root)
+        print(out)
+        return out
+    
+    def __call__(self, *args, **kwds):
+        return self.flatten(*args, **kwds)

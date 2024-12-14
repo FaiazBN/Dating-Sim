@@ -18,19 +18,16 @@ transform midright:
 
 init -1 python:
     from renpy_tracery import TraceryCharacter as TC
+    from generator import menu_grammar
+    from generator import i_cant_speak_grammar
+    from renpy_tracery import TraceryGen
     # Define Tracery grammar for rambling.
-    tracery_grammar = {
-        "origin":["#nearby# #line#"],
-        "line":["#mood.capitalize# could I just say, #compliment#, ohmygoshIsucksomuch #attempt#. No, wait, please! Don't look at me like that! *breathes heavily* #fail#"],
-        "nearby":["Y'see, #fail#", "Errrr", "Salutations, greetings, wait no", "Geez, shit, wait I'm trying to say"],
-        "compliment":["you're fine, deadly I hope, which is just my type", " your eyes are gentle and lips soft, and I am the happiest soul alive to witness that", "aww, shucks, well I just want to sit and spend the evening with you", "I'm kinda embarrassed...you seem very nice and I would love some advice, o-only if you don't mind", "are you a witch? Cause' you've put a spell on me", "hubba bubba"],
-        "mood":["I'm fine, decent even, but", "Oh hellllooooo Angel? Demon? Too much?", "I'm well, um..uhhhh pretty gooood", "Errr, great but also omgI'msoembarrassedIcoulddie, should I order an Uber? Wait no,"],
-        "fail":["before you showed up I was unhindered by these petty mortal feelings.", "I only hang out in basements.", "actually I 100% totally positively talk to plenty of women I personally find more attractive than you.", "uhhh...I think you've had a few too many martinis.", "erm...umm....durrr...fuck.", "this is a misunderstanding and I'msonervousIcan'tevengetawordout.", "well. Um. Can I be your friend?"],
-        "attempt":["I'll buy your next round", "get me an old fashioned waiter!", "I saw you sitting alone from across the bar and there was just something about you that called me over", "I apologize for disturbing your night out but can I, possibly, maybe, errr getyournumber?"]
-    }
+    
+    tracery = TraceryGen(menu_grammar)
+    
 
 # Define Tracery characters
-define e = TC("You", grammar=tracery_grammar)
+define e = TC("You", grammar=i_cant_speak_grammar)
 
 # Start the game
 label start:
@@ -51,18 +48,24 @@ label start:
 
     raina "Hi there! My name's Raina. You seem... tense. Everything okay?"
 
+    $ option1 = tracery("#conversation_starter#")
+    $ option2 = tracery("#conversation_starter#")
+    $ option3 = tracery("#conversation_starter#")
     menu:
-        "I'm doing well. Nice to meet you.":
+        # "I'm doing well. Nice to meet you.":
+        "[option1]":
             # protagonist "I'm _____. Nice to meet you!"
             e "#origin#::option1"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
-        "I'm fine. But you're even finer!":
+        # "I'm fine. But you're even finer!":
+        "[option2]":
             # protagonist "I'm fine. But you're even finer!"
             e "#origin#::option2"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
-        "I was better before you showed up (stuttering)":
+        # "I was better before you showed up (stuttering)":
+        "[option3]":
             # protagonist "I-I w-was b-better..."
             e "#origin#::option3"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
