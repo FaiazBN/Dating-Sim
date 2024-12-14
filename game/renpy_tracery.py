@@ -455,7 +455,15 @@ def parse(rule):
                 if not(s['type'] == 0 and len(s['raw']) == 0)]
     return sections, errors
 
+def refine(text):
+    return text[:255]+"..." if len(text) > 255 else text
 
+# Definition of the TraceryCharacter 
+# Format for the string: #origin#::ID
+# ID is optional, and acts as a dictionary key to cache the result
+#
+# Example:
+# e "#origin#::option1"
 class TraceryCharacter(renpy.character.ADVCharacter):
     
     def __init__(self, name, grammar, **properties):
@@ -463,12 +471,48 @@ class TraceryCharacter(renpy.character.ADVCharacter):
              grammar = Grammar(grammar)
              grammar.add_modifiers(base_english)
         self._tracery_grammar = grammar
+        
+        # dictionary to store the results 
+        self.cache = {}
         super(TraceryCharacter, self).__init__(name, **properties)        
+
+    def get_current_state(self, ID):
+        text = ""
+        for h in renpy.store._history_list:
+            text += refine(str(h.who) + " - " + str(h.what))
+        return hash(text + str(ID))
     
     def __call__(self, what, *args, **kwargs):
-        text = self._tracery_grammar.flatten(what)
-        if len(text) > 255:
-            text = text[:255]
-            text += "..."
-        super(TraceryCharacter, self).__call__(text, *args, **kwargs)
- 
+
+        # check if the string contains the number
+        if "::" in what:
+            origin, ID = what.split("::")
+            hash_id = self.get_current_state(ID)        
+            
+            if hash_id in self.cache:
+                text = self.cache[hash_id]
+                
+            else:
+                text = self._tracery_grammar.flatten(origin)
+                self.cache[hash_id] = text
+        else:
+            text = self._tracery_grammar.flatten(what)
+        
+        final_text = refine(text)
+        super(TraceryCharacter, self).__call__(final_text, *args, **kwargs)
+        
+        
+class TraceryGen:
+    def __init__(self, grammar, settings=None):
+        grammar = Grammar(grammar)
+        grammar.add_modifiers(base_english)
+        
+        self._tracery_grammar = grammar
+        
+    def flatten(self, root):
+        out = self._tracery_grammar.flatten(root)
+        print(out)
+        return out
+    
+    def __call__(self, *args, **kwds):
+        return self.flatten(*args, **kwds)
