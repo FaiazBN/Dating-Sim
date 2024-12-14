@@ -455,12 +455,8 @@ def parse(rule):
                 if not(s['type'] == 0 and len(s['raw']) == 0)]
     return sections, errors
 
-
-
-
 def refine(text):
     return text[:255]+"..." if len(text) > 255 else text
-
 
 # Definition of the TraceryCharacter 
 # Format for the string: #origin#::ID
@@ -478,21 +474,27 @@ class TraceryCharacter(renpy.character.ADVCharacter):
         
         # dictionary to store the results 
         self.cache = {}
-        
         super(TraceryCharacter, self).__init__(name, **properties)        
 
-
+    def get_current_state(self, ID):
+        text = ""
+        for h in renpy.store._history_list:
+            text += refine(str(h.who) + " - " + str(h.what))
+        return hash(text + str(ID))
+    
     def __call__(self, what, *args, **kwargs):
+
         # check if the string contains the number
         if "::" in what:
             origin, ID = what.split("::")
+            hash_id = self.get_current_state(ID)        
             
-            if ID in self.cache:
-                text = self.cache[ID]
+            if hash_id in self.cache:
+                text = self.cache[hash_id]
                 
             else:
                 text = self._tracery_grammar.flatten(origin)
-                self.cache[ID] = text
+                self.cache[hash_id] = text
         else:
             text = self._tracery_grammar.flatten(what)
         
