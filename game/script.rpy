@@ -74,18 +74,25 @@ label start:
 
     raina "Now that was a great workout! You know... maybe you should come down to my studio sometime and I could give you a private lesson?"
 
+
+    $ rain_option1 = tracery("#convo_with_raina#")
+    $ rain_option2 = tracery("#convo_with_raina#")
+    $ rain_option3 = tracery("#convo_with_raina#")
     menu:
-        "Studio? No thanks, I only hang out in basements.":
+        "[rain_option1]":
+        # "Studio? No thanks, I only hang out in basements.":
             # protagonist "Studio? No thanks, I only hang out in basements."
             e "#origin#::option1"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
-        "That sounds like fun, why don’t I order us an Uber and we get out of here?":
+        "[rain_option2]":
+        # "That sounds like fun, why don’t I order us an Uber and we get out of here?":
             # protagonist "That sounds like fun, why don’t I order us an Uber and we get out of here?"
             e "#origin#::option2"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
-        "CHAT LETS GOOO WE’RE GOING HOME WITH HER (stuttering)":
+        "[rain_option3]":
+        # "CHAT LETS GOOO WE’RE GOING HOME WITH HER (stuttering)":
             # protagonist "Uhh… I mean… CHAT LET'S GOOOO!"
             e "#origin#::option3"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"

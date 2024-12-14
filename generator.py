@@ -163,10 +163,53 @@ dialogues = [
     "#first_half# #second_half#", # repeat so there is more probability of repeating
 ]
 
+places = [
+    "basemants",
+    "attics", 
+    "treehouses", 
+    "libraries", 
+    "cellars", 
+    "caves", 
+    "garages", 
+    "rooftops", 
+    "cabins", 
+    "tunnels"
+]
 
+dance_move_or_skill = [
+    "tap dance",
+    "ballet",
+    "jazz",
+    "hip hop",
+    
+    # some other skill
+    "sing",
+    "play guitar",
+    "play piano",
+    "play drums",
+    "dance",
+]
+
+convo_with_raina = [
+    "Studio? No thanks, I only hang out in #places#.",
+    "That sounds like fun, why don’t I order us an Uber and we get out of here?",
+    "CHAT LETS GOOO WE’RE GOING HOME WITH HER (stuttering)",
+    
+    "A private lesson, huh? You think you can handle me?"
+    "I'm not sure I'm ready for that kind of intensity."
+    "You know, I've always wanted to learn how to #dance_move_or_skill#."
+    
+    "Sure, I'd love to. When are you free?",
+    "Count me in. Let's do it.",
+    "Um, I don't know... I'm not very good at that.",
+    "I'm flattered, but I don't think I'm good enough."
+
+    "I'll pass. I prefer my workouts to be less... personal."
+]
 
 menu_grammar = {
     "conversation_starter":["#dialogue#"],
+    "convo_with_raina":convo_with_raina,
     "dialogue": dialogues,
     "punny_description": punny_description,
     "silly_descriptor": silly_descriptor,
@@ -175,4 +218,6 @@ menu_grammar = {
     "ludicrous_metaphor": ludicrous_metaphor,
     "first_half": first_half,
     "second_half": second_half,
+    "dance_move_or_skill": dance_move_or_skill,
+    "places": places
 }
