@@ -195,9 +195,9 @@ convo_with_raina = [
     "That sounds like fun, why don’t I order us an Uber and we get out of here?",
     "CHAT LETS GOOO WE’RE GOING HOME WITH HER (stuttering)",
     
-    "A private lesson, huh? You think you can handle me?"
-    "I'm not sure I'm ready for that kind of intensity."
-    "You know, I've always wanted to learn how to #dance_move_or_skill#."
+    "A private lesson, huh? You think you can handle me?",
+    "I'm not sure I'm ready for that kind of intensity.",
+    "You know, I've always wanted to learn how to #dance_move_or_skill#.",
     
     "Sure, I'd love to. When are you free?",
     "Count me in. Let's do it.",
@@ -207,9 +207,35 @@ convo_with_raina = [
     "I'll pass. I prefer my workouts to be less... personal."
 ]
 
+
+convo_with_dayonetta = [
+    "What's that? Sorry, no. I talk to plenty of women, hotter than you.",
+    "Hubba hubba. Are you a witch? Cuz there’s a spell on me for sure.",
+    "Oh yea… that was quite embarrassing… you seem very nice, I would love some advice if you don’t mind.",
+    "I'm not sure I need your help, but I'm always open to learning new things.",
+    "I appreciate the offer, but I think I've got this.",
+    "I'm flattered, but I'm not interested.",
+    "Oh, is that so? Well, I'm sure you have a lot of experience.",
+    "I'll keep that in mind. Maybe I'll take you up on that offer.",
+    "I'm not sure I'm ready for your advanced techniques.",
+    "Thank you for the offer. I'll definitely keep that in mind.",
+    "I'm grateful for your kindness. I'll try to do better next time.",
+    "I'm a bit embarrassed, but I appreciate your willingness to help."
+]
+
+convo_with_justina = [
+    "Just your number baby, and maybe a kiss while you’re at it.",
+    "Sorry to bother you, I can get out of your way now.",
+    "Oh, you caught my eye, didn't you? I've been watching you. And I like what I see. Give me your number, and maybe, just maybe, I'll let you see what I can do",
+    "There's something about you. A darkness. A hunger. It's... intoxicating. Let's explore it together.",
+    "You know what you want. You know what I want. Stop playing games. Give me your number, or I'll take it."
+]
+
 menu_grammar = {
     "conversation_starter":["#dialogue#"],
     "convo_with_raina":convo_with_raina,
+    "convo_with_dayonetta":convo_with_dayonetta,
+    "convo_with_justina":convo_with_justina,
     "dialogue": dialogues,
     "punny_description": punny_description,
     "silly_descriptor": silly_descriptor,

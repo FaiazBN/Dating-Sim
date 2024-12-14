@@ -52,21 +52,15 @@ label start:
     $ option2 = tracery("#conversation_starter#")
     $ option3 = tracery("#conversation_starter#")
     menu:
-        # "I'm doing well. Nice to meet you.":
         "[option1]":
-            # protagonist "I'm _____. Nice to meet you!"
             e "#origin#::option1"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
-        # "I'm fine. But you're even finer!":
         "[option2]":
-            # protagonist "I'm fine. But you're even finer!"
             e "#origin#::option2"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
-        # "I was better before you showed up (stuttering)":
         "[option3]":
-            # protagonist "I-I w-was b-better..."
             e "#origin#::option3"
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
@@ -80,20 +74,14 @@ label start:
     $ rain_option3 = tracery("#convo_with_raina#")
     menu:
         "[rain_option1]":
-        # "Studio? No thanks, I only hang out in basements.":
-            # protagonist "Studio? No thanks, I only hang out in basements."
             e "#origin#::option1"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
         "[rain_option2]":
-        # "That sounds like fun, why don’t I order us an Uber and we get out of here?":
-            # protagonist "That sounds like fun, why don’t I order us an Uber and we get out of here?"
             e "#origin#::option2"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
         "[rain_option3]":
-        # "CHAT LETS GOOO WE’RE GOING HOME WITH HER (stuttering)":
-            # protagonist "Uhh… I mean… CHAT LET'S GOOOO!"
             e "#origin#::option3"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
@@ -109,19 +97,19 @@ label start:
     show dayonetta norm at half_size, midright
     dayonetta "Hello darling, terribly sorry to see you strike out over there. If you need to learn to talk to a lady… why not ask me!"
 
+    $ dayonetta_option1 = tracery("#convo_with_dayonetta#")
+    $ dayonetta_option2 = tracery("#convo_with_dayonetta#")
+    $ dayonetta_option3 = tracery("#convo_with_dayonetta#")
     menu:
-        "What’s that? Sorry, no. I talk to plenty of women, hotter than you.":
-            # protagonist "What’s that? Sorry, no. I talk to plenty of women, hotter than you."
+        "[dayonetta_option1]":
             e "#origin#::option1"
             dayonetta "Demon got your tongue? It's alright darling. Maybe next time you'll have better luck."
 
-        "Hubba hubba. Are you a witch? Cuz there’s a spell on me for sure.":
-            # protagonist "Hubba hubba. Are you a witch? Cuz there’s a spell on me for sure."
+        "[dayonetta_option2]":
             e "#origin#::option2"
             dayonetta "Demon got your tongue? It's alright darling. Maybe next time you'll have better luck."
 
-        "Oh yea… that was quite embarrassing… you seem very nice, I would love some advice if you don’t mind.":
-            # protagonist "Oh yea… that was quite embarrassing… you seem very nice, I would love some advice if you don’t mind."
+        "[dayonetta_option3]":
             e "#origin#::option3"
             dayonetta "Shall we start you off with a cosmopolitan? Maybe that will give you the confidence to slay some angels, or at least get a word out."
 
@@ -136,17 +124,20 @@ label start:
     show justina norm at half_size, midright
     justina "Ugh, what do you want?"
 
+
+    $ justina_option1 = tracery("#convo_with_justina#")
+    $ justina_option2 = tracery("#convo_with_justina#")
+
     menu:
-        "Just your number baby, and maybe a kiss while you’re at it.":
+        "[justina_option1]":
             e "#origin#::option1"
-            # protagonist "Just your number baby, and maybe a kiss while you’re at it."
             justina "That’s it. You’ve bothered enough girls tonight. You’re out of here!"
 
-        "Sorry to bother you, I can get out of your way now.":
+        "[justina_option2]":
             e "#origin#::option2"
-            # protagonist "Sorry to bother you, I can get out of your way now."
             justina "That’s it. You’ve bothered enough girls tonight. You’re out of here!"
 
+        
         "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?":
             e "#origin#::option3"
             # protagonist "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?"
