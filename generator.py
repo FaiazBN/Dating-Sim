@@ -193,7 +193,7 @@ dance_move_or_skill = [
 convo_with_raina = [
     "Studio? No thanks, I only hang out in #places#.",
     "That sounds like fun, why don’t I order us an Uber and we get out of here?",
-    "CHAT LETS GOOO WE’RE GOING HOME WITH HER (stuttering)",
+    "CHAT LETS GOOO WE’RE GOING HOME WITH HER",
     
     "A private lesson, huh? You think you can handle me?",
     "I'm not sure I'm ready for that kind of intensity.",
