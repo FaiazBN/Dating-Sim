@@ -8,7 +8,7 @@
 # Kai's grammar when the player is rambling
 i_cant_speak_grammar = {
     "origin":["#nearby# #line#"],
-    "line":["#mood.capitalize# could I just say, #compliment#, ohmygoshIsucksomuch #attempt#. No, wait, please! Don't look at me like that! *breathes heavily* #fail#"],
+    "line":["#mood.capitalize# could I just say, #compliment#, {sc}ohmygoshIsucksomuch{/sc} #attempt#. No, wait, please! Don't look at me like that! *breathes heavily* #fail#"],
     "nearby":["Y'see, #fail#", "Errrr", "Salutations, greetings, wait no", "Geez, shit, wait I'm trying to say"],
     "compliment":["you're fine, deadly I hope, which is just my type", " your eyes are gentle and lips soft, and I am the happiest soul alive to witness that", "aww, shucks, well I just want to sit and spend the evening with you", "I'm kinda embarrassed...you seem very nice and I would love some advice, o-only if you don't mind", "are you a witch? Cause' you've put a spell on me", "hubba bubba"],
     "mood":["I'm fine, decent even, but", "Oh hellllooooo Angel? Demon? Too much?", "I'm well, um..uhhhh pretty gooood", "Errr, great but also omgI'msoembarrassedIcoulddie, should I order an Uber? Wait no,"],

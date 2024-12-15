@@ -18,7 +18,7 @@ define justina = Character("Justina")
 
 #sprites are too big
 transform half_size: 
-    zoom 0.5 #adjust as required
+    zoom 0.75 #adjust as required
 
 transform midright:
     yalign 1.0
@@ -103,10 +103,11 @@ label start:
 
 
     story "(He glances around. A soft-spoken woman in athletic wear approaches the bar with a gentle smile.)"
-    show raina norm at half_size,midright
+    show raina meditate at half_size,midright
        
     protagonist "Okay, I can do this. Just be {explodehalf=1-1.0}casual{/explodehalf}. Just be {rotat}normal{/rotat}. And maybe don’t spill your drink this time."
 
+    show raina neutral at half_size,midright
     raina "Hi there! My name's Raina. You seem...  {glitch=1.1}tense{/glitch}. Everything okay?"
 
     $ option1 = tracery("#conversation_starter#")
@@ -115,18 +116,24 @@ label start:
     menu:
         "[option1]":
             e "#origin#::option1"
+            show raina meditate at half_size,midright
             raina "Relaxing is important. Here, let’s practice our {bt=2}breathing{/bt} and {bt=2}calm down{/bt}!"
 
         "[option2]":
             e "#origin#::option2"
+            show raina meditate at half_size,midright
+
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
         "[option3]":
             e "#origin#::option3"
+            show raina meditate at half_size,midright
             raina "Relaxing is important. Here, let’s practice our breathing and calm down!"
 
-    protagonist "Is she… meditating? In a bar? Should I join her? I’ll look weird if I don’t. But also weird if I do. Oh no, what do I do with my hands?"
+    show raina meditate at half_size,midright
+    protagonist "Is she… meditating? In a bar? Should I join her? I’ll look weird if I don’t. But also weird if I do. Oh no, what do I do with my {sc}hands?{sc}"
 
+    show raina cheerful at half_size,midright
     raina "Now that was a great workout! You know... maybe you should come down to my studio sometime and I could give you a private lesson?"
 
 
@@ -136,14 +143,17 @@ label start:
     menu:
         "[rain_option1]":
             e "#origin#::option1"
+            show raina confused at half_size,midright
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
         "[rain_option2]":
             e "#origin#::option2"
+            show raina confused at half_size,midright
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
         "[rain_option3]":
             e "#origin#::option3"
+            show raina confused at half_size,midright
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
 
@@ -157,9 +167,11 @@ label start:
     protagonist "Okay, one down, but there’s plenty of other opportunities around here. I mean, she was practically a yoga class in human form anyways, so maybe I’ll have better luck over there?"
     
     # protagonist "I spot a woman with glasses and dark short hair sitting alone at a booth. She seems approachable but mysterious."
+    show dayonetta neutral at half_size, midright
     story "A woman with glasses and dark short hair sits alone at a booth. She is approachable but mysterious."
-    show dayonetta norm at half_size, midright
+    show dayonetta amused at half_size, midright
     dayonetta "Hello darling, terribly sorry to see you strike out over there. If you need to learn to talk to a lady… why not ask me!"
+    show dayonetta amused at half_size, midright
 
     $ dayonetta_option1 = tracery("#convo_with_dayonetta#")
     $ dayonetta_option2 = tracery("#convo_with_dayonetta#")
@@ -167,16 +179,20 @@ label start:
     menu:
         "[dayonetta_option1]":
             e "#origin#::option1"
+            show dayonetta confused at half_size, midright
             dayonetta "Demon got your tongue? It’s alright darling, shall we start you off with a cosmopolitan? Maybe that will give the confidence to slay some angels, or at least get a word out."
 
         "[dayonetta_option2]":
             e "#origin#::option2"
+            show dayonetta confused at half_size, midright
             dayonetta " Demon got your tongue? It’s alright darling, shall we start you off with a cosmopolitan? Maybe that will give the confidence to slay some angels, or at least get a word out."
 
         "[dayonetta_option3]":
             e "#origin#::option3"
+            show dayonetta confused at half_size, midright
             dayonetta " Demon got your tongue? It’s alright darling, shall we start you off with a cosmopolitan? Maybe that will give the confidence to slay some angels, or at least get a word out."
 
+    show dayonetta flirt at half_size, midright
     story "She winks and walks away. That could have gone better… or worse."
 
     # Transition to the final encounter
@@ -184,10 +200,10 @@ label start:
         zoom 5
         blur 15
 
-    protagonist "Wow. I really thought I’d be better at this. Well, third time’s the charm I suppose. I think that  woman over there came in on a motorbike, maybe she’s cool enough for my style."
+    protagonist "Wow. I really thought I’d be better at this. Well, third time’s the charm I suppose. I think that woman over there came in on a motorbike, maybe she’s cool enough for my style."
     story "(You approach the woman in another booth nearby, she is blonde with her orange and green motorcycle helmet on the table beside her)"
 
-    show justina norm at half_size, midright
+    show betroid neutral at half_size, midright
     justina "Ugh, what do you want?"
 
 
@@ -197,46 +213,60 @@ label start:
     menu:
         "[justina_option1]":
             e "#origin#::option1"
+            show betroid angry at half_size, midright
+
             justina "Great, another creep. Look buddy I’m just trying to enjoy the one night I have to relax before my next mission, so if you were looking to waste my time I suggest you get moving."
 
         "[justina_option2]":
             e "#origin#::option2"
+            show betroid angry at half_size, midright
             justina "Great, another creep. Look buddy I’m just trying to enjoy the one night I have to relax before my next mission, so if you were looking to waste my time I suggest you get moving."
 
         
         "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?":
             e "#origin#::option3"
+            show betroid angry at half_size, midright
             # protagonist "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?"
             justina "Great, another creep. Look buddy I’m just trying to enjoy the one night I have to relax before my next mission, so if you were looking to waste my time I suggest you get moving."
 
 
     menu:
+        
         "Playing hard to get I see? You know, deadly is just my type.":
+            stop music
+            play music "domingodeguardia.mp3"
+            show betroid confused at half_size, midright
             justina "Alright, I’ll admit, that was a pretty honest attempt. Nervousness and all, at least you’re not like the usual creeps I run into."
             protagonist "Really? I mean… thank you! I promise, I’m not trying to bother you—I just thought you seemed… interesting."
+            show betroid neutral at half_size, midright
             justina "Interesting, huh? Well, I guess I could use a decent conversation tonight. Alright, I’ll bite. But you’d better not make me regret this."
             protagonist "You won’t! I swear!"
+            show betroid confused at half_size, midright
             justina "Alright, then. Pull up a seat. Just don’t try anything fnny—deadly isn’t just my type, it’s also what I am."
             protagonist "Noted! Drinks on me?"
+            show betroid neutral at half_size, midright
             justina "You’ve got five minutes to impress me. Let’s see if you’re worth more than just a drink"
 
 
             # alternate ending
 
             stop music
+            play music "Deliciously-Sour.mp3"
             # End the game
             scene bg outsidebar:
                 blur 100
 
-            story "The rest of the night pased by in a blur. Only if the censorship laws were relaxed would we be able to tell you what happened. The protagonist can't remember what happened, but he does remember that he ..."
+            story "The rest of the night pased by in a blur. Only if the censorship laws were relaxed would we be able to tell you what happened. The protagonist can't remember what happened, but they do remember that tjey ..."
             story "..."
-            story "(He tries to show his face, and the game ends.)"
+            story "You wake up in a hospital bed. Doctors said you had a panic attack last night and a blonde girl dropped you off. Justina is nowhere to be found."
             return
 
         "No, please! This is a misunderstanding and I’m just so nervous I can’t even get a word out. I’m sorry to disturb you during your night out, I was just looking to make a friend.":
+            show betroid disinterested at half_size, midright
             justina "Well, if stammering was a competition, you'd have gold by now. But hey, points for effort. Good luck next time—now scoot before my patience runs out."
 
-        "What’s the use? Erm…uhhh…durrrr.":
+        "What’s the use?{sc} Erm…uhhh…durrrr{sc}.":
+            show betroid disinterested at half_size, midright
             justina "Well, if stammering was a competition, you'd have gold by now. But hey, points for effort. Good luck next time—now scoot before my patience runs out."
 
     
@@ -248,6 +278,7 @@ label start:
     scene bg outsidebar:
         blur 10
     play music "crickets.mp3"
-    protagonist "{bt}{sc}{rotat}{chaos}I’ve been thrown out of the bar. Maybe I need to rethink my strategy.{bt}{sc}{rotat}{chaos}"
-    
+    protagonist "{sc}I’ve been thrown out of the bar. Maybe I need to rethink my strategy.{/sc}"
+    #    protagonist "{bt}{sc}{rotat}I’ve been thrown out of the bar. Maybe I need to rethink my strategy.{bt}{sc}{rotat}"
+
     return
