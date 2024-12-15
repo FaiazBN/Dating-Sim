@@ -4,6 +4,7 @@
 # name of the character.
 
 define protagonist = Character("Self-Talk")
+define story = Character("")
 define raina = Character("Raina")
 define dayonetta = Character("Dayonetta")
 define justina = Character("Justina")
@@ -40,11 +41,15 @@ label start:
 
 
     # Internal monologue and scene setup
-    protagonist "A dimly lit bar. I stand nervously by the counter, nursing a soda."
-    protagonist "Why did I come here? No one comes to bars for the soda. Just... act natural. Stand casually. Yeah, because this is what casual feels like."
+    # protagonist "A dimly lit bar. I stand nervously by the counter, nursing a soda."
+    protagonist "Why did I come here? No one comes to bars for the soda. Just... act natural. Stand casually. "
+    protagonist "Yeah, because this is what casual feels like."
+
+
+    story "(He glances around. A soft-spoken woman in athletic wear approaches the bar with a gentle smile.)"
     show raina norm at half_size,midright
        
-    protagonist "I glance around nervously. A soft-spoken woman in athletic wear approaches the bar with a gentle smile."
+    protagonist "Okay, I can do this. Just be casual. Just be normal. And maybe don’t spill your drink this time."
 
     raina "Hi there! My name's Raina. You seem... tense. Everything okay?"
 
@@ -85,15 +90,18 @@ label start:
             e "#origin#::option3"
             raina "Well… maybe another time then… remember to stretch your legs and focus on balance. Maybe one day, you’ll be able to lift 350 pounds like me!"
 
-    protagonist "Okay, one down, but there’s plenty of other opportunities around here. I mean, she was practically a yoga class in human form anyways, so maybe I’ll have better luck over there."
+
 
     # Transition to the next encounter
     scene bg booth with fade:
         zoom 4
         blur 15
 
+    story "(She leaves, and the protagonist exhales sharply.)"
+    protagonist "Okay, one down, but there’s plenty of other opportunities around here. I mean, she was practically a yoga class in human form anyways, so maybe I’ll have better luck over there?"
     
-    protagonist "I spot a woman with glasses and dark short hair sitting alone at a booth. She seems approachable but mysterious."
+    # protagonist "I spot a woman with glasses and dark short hair sitting alone at a booth. She seems approachable but mysterious."
+    story "A woman with glasses and dark short hair sits alone at a booth. She is approachable but mysterious."
     show dayonetta norm at half_size, midright
     dayonetta "Hello darling, terribly sorry to see you strike out over there. If you need to learn to talk to a lady… why not ask me!"
 
@@ -103,24 +111,26 @@ label start:
     menu:
         "[dayonetta_option1]":
             e "#origin#::option1"
-            dayonetta "Demon got your tongue? It's alright darling. Maybe next time you'll have better luck."
+            dayonetta "Demon got your tongue? It’s alright darling, shall we start you off with a cosmopolitan? Maybe that will give the confidence to slay some angels, or at least get a word out."
 
         "[dayonetta_option2]":
             e "#origin#::option2"
-            dayonetta "Demon got your tongue? It's alright darling. Maybe next time you'll have better luck."
+            dayonetta " Demon got your tongue? It’s alright darling, shall we start you off with a cosmopolitan? Maybe that will give the confidence to slay some angels, or at least get a word out."
 
         "[dayonetta_option3]":
             e "#origin#::option3"
-            dayonetta "Shall we start you off with a cosmopolitan? Maybe that will give you the confidence to slay some angels, or at least get a word out."
+            dayonetta " Demon got your tongue? It’s alright darling, shall we start you off with a cosmopolitan? Maybe that will give the confidence to slay some angels, or at least get a word out."
 
-    protagonist "She winks and walks away. That could have gone better… or worse."
+    story "She winks and walks away. That could have gone better… or worse."
 
     # Transition to the final encounter
     scene bg booth_motorbike with fade:
         zoom 5
         blur 15
 
-    protagonist "I notice another woman sitting nearby with a motorcycle helmet on the table beside her. She has an intense aura."
+    protagonist "Wow. I really thought I’d be better at this. Well, third time’s the charm I suppose. I think that  woman over there came in on a motorbike, maybe she’s cool enough for my style."
+    story "(You approach the woman in another booth nearby, she is blonde with her orange and green motorcycle helmet on the table beside her)"
+
     show justina norm at half_size, midright
     justina "Ugh, what do you want?"
 
@@ -131,17 +141,50 @@ label start:
     menu:
         "[justina_option1]":
             e "#origin#::option1"
-            justina "That’s it. You’ve bothered enough girls tonight. You’re out of here!"
+            justina "Great, another creep. Look buddy I’m just trying to enjoy the one night I have to relax before my next mission, so if you were looking to waste my time I suggest you get moving."
 
         "[justina_option2]":
             e "#origin#::option2"
-            justina "That’s it. You’ve bothered enough girls tonight. You’re out of here!"
+            justina "Great, another creep. Look buddy I’m just trying to enjoy the one night I have to relax before my next mission, so if you were looking to waste my time I suggest you get moving."
 
         
         "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?":
             e "#origin#::option3"
             # protagonist "I’ll be honest. I saw you sitting alone from across the bar and there was just something about you that called me over here. Your eyes are so gentle and your lips are so soft I feel fortunate just to witness them. Forgive me if this is too forward, but might I sit with you here and spend the evening with you?"
-            justina "That’s it. You’ve bothered enough girls tonight. You’re out of here!"
+            justina "Great, another creep. Look buddy I’m just trying to enjoy the one night I have to relax before my next mission, so if you were looking to waste my time I suggest you get moving."
+
+
+    menu:
+        "Playing hard to get I see? You know, deadly is just my type.":
+            justina "Alright, I’ll admit, that was a pretty honest attempt. Nervousness and all, at least you’re not like the usual creeps I run into."
+            protagonist "Really? I mean… thank you! I promise, I’m not trying to bother you—I just thought you seemed… interesting."
+            justina "Interesting, huh? Well, I guess I could use a decent conversation tonight. Alright, I’ll bite. But you’d better not make me regret this."
+            protagonist "You won’t! I swear!"
+            justina "Alright, then. Pull up a seat. Just don’t try anything fnny—deadly isn’t just my type, it’s also what I am."
+            protagonist "Noted! Drinks on me?"
+            justina "You’ve got five minutes to impress me. Let’s see if you’re worth more than just a drink"
+
+
+            # alternate ending
+
+            stop music
+            # End the game
+            scene bg outsidebar:
+                blur 100
+
+            story "The rest of the night pased by in a blur. Only if the censorship laws were relaxed would we be able to tell you what happened. The protagonist can't remember what happened, but he does remember that he ..."
+            story "..."
+            story "(He tries to show his face, and the game ends.)"
+            return
+
+        "No, please! This is a misunderstanding and I’m just so nervous I can’t even get a word out. I’m sorry to disturb you during your night out, I was just looking to make a friend.":
+            justina "Well, if stammering was a competition, you'd have gold by now. But hey, points for effort. Good luck next time—now scoot before my patience runs out."
+
+        "What’s the use? Erm…uhhh…durrrr.":
+            justina "Well, if stammering was a competition, you'd have gold by now. But hey, points for effort. Good luck next time—now scoot before my patience runs out."
+
+    
+
     stop music
     play sound "thwack-06.wav"
 
