@@ -14,7 +14,7 @@ define protagonist = Character("Self-Talk")
 define story = Character("")
 define raina = Character("Raina")
 define dayonetta = Character("Dayonetta")
-define justina = Character("Justina")
+define justina = Character("Betroid")
 
 #sprites are too big
 transform half_size: 
@@ -258,7 +258,7 @@ label start:
 
             story "The rest of the night pased by in a blur. Only if the censorship laws were relaxed would we be able to tell you what happened. The protagonist can't remember what happened, but they do remember that tjey ..."
             story "..."
-            story "You wake up in a hospital bed. Doctors said you had a panic attack last night and a blonde girl dropped you off. Justina is nowhere to be found."
+            story "You wake up in a hospital bed. Doctors said you had a panic attack last night and a blonde girl dropped you off. Betroid is nowhere to be found."
             return
 
         "No, please! This is a misunderstanding and I’m just so nervous I can’t even get a word out. I’m sorry to disturb you during your night out, I was just looking to make a friend.":
